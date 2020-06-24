@@ -19,7 +19,7 @@ import org.apache.ibatis.annotations.Results;
 
 @MapperScan("package com.example.demo.dao")
 public interface UserMapper {
-	
+	 
 	 @Select("select * from user where id = #{id}")
 	 List<com.example.demo.domain.User> getUser(int id);
 	

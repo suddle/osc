@@ -23,7 +23,7 @@ public interface FileMapper {
 	 @Select("select * from file where filename = #{filename}")
 	 List<com.example.demo.domain.File> getFile(String filename);//模糊查询
 	
-	 @Select("delete from file where filename = #{filename} and  id=#{id}")
+	 @Delete("delete from file where filename = #{filename} and  id=#{id}")
 	 com.example.demo.domain.File deleteFile(String filename,int id);//删除
 
 	 @Insert("insert into file (file,filename,remark,title) values (#{file},#{filename},#{remark},#{title})")
