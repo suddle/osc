@@ -19,6 +19,8 @@ import org.apache.ibatis.annotations.Results;
 
 @MapperScan("package com.example.demo.dao")
 public interface UserMapper {
+	 @Update("update user set name = #{username},telephone=#{telephone} where id=#{id}")
+	 int updateUser(String username,String telephone,int id);//修改
 	 
 	 @Select("select * from user where id = #{id}")
 	 List<com.example.demo.domain.User> getUser(int id);
@@ -27,7 +29,7 @@ public interface UserMapper {
 	 List<com.example.demo.domain.User> selectUser(String username,String password);
 
 	 @Insert("insert into user (name,password,telephone,role) values (#{username},#{password},#{telephone},#{role})")
-	 com.example.demo.domain.User insertUser(String username, String password, String telephone,String role);
+	 int insertUser(String username, String password, String telephone,String role);
 	 
 	 @Select("select * from user")
 	 List<com.example.demo.domain.User> getAllUser();

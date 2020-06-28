@@ -25,18 +25,13 @@ public class UserServer {
 	}
     
     
-    public boolean insertUser(String username,String password,String telephone,String role) {
-    	boolean is_true;
-    	try {
-    		userMapper.insertUser( username,password,telephone,role);
-    		is_true=true;
-    	}catch (Exception e) {
-    		System.out.print(e);
-			is_true=false;
-		}
-    	return is_true;
+    public int insertUser(String username,String password,String telephone,String role) {
+    	return userMapper.insertUser( username,password,telephone,role);    	
     }
     
+    public int updateUser(String username,String telephone,int id) {
+		return userMapper.updateUser(username, telephone, id);
+	}
     
     public boolean islogin(String username, String password) {
     	boolean is_true;

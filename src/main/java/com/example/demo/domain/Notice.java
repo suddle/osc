@@ -17,10 +17,10 @@ public class Notice {
 	private Integer userid;
 	private String content;
 	private String title;
-	private DateTime createdate;
+	private String createdate;
 
 
-	public Notice(Integer userid,String content, String title,DateTime createdate) {
+	public Notice(Integer userid,String content, String title,String createdate) {
 		// TODO Auto-generated constructor stub
 		this.userid=userid;
 		this.content = content;
@@ -59,11 +59,11 @@ public class Notice {
         this.title = title;
     }
     
-    public DateTime getCreatedate() {
+    public String getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(DateTime createdate) {
+    public void setCreatedate(String createdate) {
         this.createdate = createdate;
     }
     

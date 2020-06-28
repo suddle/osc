@@ -20,6 +20,7 @@ Map<String,String> map=new HashMap<String,String>();
     private NoticeServer systenmserver;
 	
 	@RequestMapping(value="/updatenotice",method=RequestMethod.POST)
+	@ResponseBody
 	public Map<String, String> updateNotice(@RequestParam(value="content",required=true) String content,@RequestParam(value="title",required=true) String title,@RequestParam(value="id",required=true) int id) {
 		if(systenmserver.updateNotice(content, title, id)==1) {
 			map.put("msg", "success");
@@ -42,6 +43,7 @@ Map<String,String> map=new HashMap<String,String>();
 	}
 	
 	@RequestMapping(value="deletenotice",method=RequestMethod.GET)
+	@ResponseBody
 	public Map<String,String> deletenotice(@RequestParam(value="id",required=false) int id){
 		if(systenmserver.deleteNotice(id)==1) {
 			map.put("msg", "success");
@@ -54,6 +56,7 @@ Map<String,String> map=new HashMap<String,String>();
 	}
 	
 	@RequestMapping(value="insertnotice",method=RequestMethod.POST)
+	@ResponseBody
 	public Map<String,String> insertNotice(@RequestParam(value="name",required=false) String name,@RequestParam(value="remark",required=false) String remark,@RequestParam(value="userid",required=false) String userid){
 		if(systenmserver.insertNotice(name, remark, userid)==1) {
 			map.put("msg", "success");

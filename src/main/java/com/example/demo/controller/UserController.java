@@ -55,9 +55,9 @@ public class UserController {
 			return map;
 		}
 		if(username.length()>3&&password.length()>5&&telephone.length()>10) {
-			boolean register=userService.insertUser(username,password,telephone,role);
+			int register=userService.insertUser(username,password,telephone,role);
 			System.out.print(String.valueOf(register)+"很好");
-			if(register) {
+			if(register==1) {
 				map.put("msg", "success");
 				map.put("code", "200");
 			}else {
@@ -93,5 +93,18 @@ public class UserController {
 		}
     	return map;
     }
+    
+    @RequestMapping(value="/updateuser",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> updateuser(@RequestParam(value="username",required=true) String username,@RequestParam(value="telephone",required=true) String telephone,@RequestParam(value="id",required=true) int id) {
+		if(userService.updateUser(username, telephone, id)==1){
+			map.put("msg", "success");
+			map.put("code", "200");
+		}else {
+			map.put("msg", "fail");
+			map.put("code", "400");
+		}
+		return map;
+	}
     
 }
